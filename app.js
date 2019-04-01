@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 app.get("/validate/:number", (req, res) => {
   cache.get("key-" + req.params.number).then(value => {
     if (value) {
-      res.send({ cached: true, ...value });
+      res.send({ cached: true, value });
     } else {
       const url =
         "http://apilayer.net/api/validate?access_key=" +
